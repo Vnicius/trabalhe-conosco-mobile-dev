@@ -1,4 +1,4 @@
-package io.github.vnicius.picpay.fragments
+package io.github.vnicius.picpay.ui.common.fragments
 
 
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package io.github.vnicius.picpay.api.retrofit.services
+package io.github.vnicius.picpay.data.remote.retrofit.services
 
 import io.github.vnicius.picpay.data.model.Contact
 import retrofit2.Call

@@ -2,7 +2,7 @@ package io.github.vnicius.picpay.ui.contacts
 
 import io.github.vnicius.picpay.data.model.Contact
 import io.github.vnicius.picpay.data.repository.contacts.ContactsRepository
-import io.github.vnicius.picpay.data.repository.contacts.ContactsRepositoryAPI
+import io.github.vnicius.picpay.data.repository.contacts.ContactsRepositoryRemote
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
@@ -11,7 +11,7 @@ import java.net.UnknownHostException
 
 class ContactsPresenter(val view: ContactsContract.View): ContactsContract.Presenter {
 
-    private val contactsRepository: ContactsRepository = ContactsRepositoryAPI()
+    private val contactsRepository: ContactsRepository = ContactsRepositoryRemote()
 
     override fun getContacts() {
         val scope = CoroutineScope(Dispatchers.Main)

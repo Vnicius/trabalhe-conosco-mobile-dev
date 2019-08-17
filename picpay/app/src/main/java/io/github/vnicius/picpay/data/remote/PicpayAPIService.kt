@@ -1,15 +1,13 @@
-package io.github.vnicius.picpay.api
+package io.github.vnicius.picpay.data.remote
 
-import io.github.vnicius.picpay.api.retrofit.RetrofitInitializer
-import io.github.vnicius.picpay.data.model.Contact
-import kotlinx.coroutines.Deferred
+import io.github.vnicius.picpay.data.remote.retrofit.RetrofitInitializer
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
 /**
  * Connection with the PicPay API
  */
-class PicpayAPI: APIInterface {
+class PicpayAPIService: RemoteInterface {
 
     private val retrofitInstance = RetrofitInitializer()
 

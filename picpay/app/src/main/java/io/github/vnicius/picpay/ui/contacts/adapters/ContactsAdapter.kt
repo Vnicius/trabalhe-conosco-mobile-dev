@@ -1,4 +1,4 @@
-package io.github.vnicius.picpay.adapters
+package io.github.vnicius.picpay.ui.contacts.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,16 +9,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import io.github.vnicius.picpay.R
 import io.github.vnicius.picpay.data.model.Contact
+import io.github.vnicius.picpay.ui.common.adapters.ItemClick
 
 class ContactsAdapter(val contacts: List<Contact>, val listener: ItemClick<Contact>): RecyclerView.Adapter<ContactsAdapter.VielHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VielHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.contact_item, parent, false)
 
-        return VielHolder(view, object: OnItemClickListener {
-            override fun onClick(view: View, position: Int) {
-                listener.onClick(view, contacts[position])
-            }
-        })
+        return VielHolder(
+            view,
+            object : OnItemClickListener {
+                override fun onClick(view: View, position: Int) {
+                    listener.onClick(view, contacts[position])
+                }
+            })
     }
 
     override fun getItemCount(): Int {

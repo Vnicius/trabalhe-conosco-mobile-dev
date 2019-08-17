@@ -1,4 +1,4 @@
-package io.github.vnicius.picpay.adapters
+package io.github.vnicius.picpay.ui.common.adapters
 
 import android.view.View
 

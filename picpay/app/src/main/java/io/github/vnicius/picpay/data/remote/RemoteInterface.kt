@@ -1,4 +1,4 @@
-package io.github.vnicius.picpay.api
+package io.github.vnicius.picpay.data.remote
 
 import io.github.vnicius.picpay.data.model.Contact
 import kotlinx.coroutines.Deferred
@@ -6,7 +6,7 @@ import kotlinx.coroutines.Deferred
 /**
  * API connection interface
  */
-interface APIInterface {
+interface RemoteInterface {
     /**
      * Get contacts
      * @return

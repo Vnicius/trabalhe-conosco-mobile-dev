@@ -1,7 +1,5 @@
-package io.github.vnicius.picpay.fragments
+package io.github.vnicius.picpay.ui.common.fragments
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -36,6 +34,7 @@ class NoConnectionFragment(private val tryAgainHandler: (() -> Unit)) : Fragment
 
     companion object {
         @JvmStatic
-        fun newInstance(tryAgainHandler: (() -> Unit)) = NoConnectionFragment(tryAgainHandler)
+        fun newInstance(tryAgainHandler: (() -> Unit)) =
+            NoConnectionFragment(tryAgainHandler)
     }
 }

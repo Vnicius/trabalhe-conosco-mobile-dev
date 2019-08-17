@@ -1,6 +1,6 @@
-package io.github.vnicius.picpay.api.retrofit
+package io.github.vnicius.picpay.data.remote.retrofit
 
-import io.github.vnicius.picpay.api.retrofit.services.ContactsService
+import io.github.vnicius.picpay.data.remote.retrofit.services.ContactsService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

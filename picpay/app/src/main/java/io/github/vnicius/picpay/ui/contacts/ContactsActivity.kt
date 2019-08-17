@@ -1,16 +1,8 @@
 package io.github.vnicius.picpay.ui.contacts
 
-import android.content.Context
-import android.graphics.Color
 import android.graphics.PorterDuff
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.os.Bundle
-import android.util.Log
-import android.view.Gravity
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -20,9 +12,12 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import io.github.vnicius.picpay.R
 import io.github.vnicius.picpay.data.model.Contact
-import io.github.vnicius.picpay.fragments.*
+import io.github.vnicius.picpay.ui.common.fragments.NoConnectionFragment
+import io.github.vnicius.picpay.ui.common.fragments.NoResultFragment
+import io.github.vnicius.picpay.ui.common.fragments.SpinnerFragment
+import io.github.vnicius.picpay.ui.contacts.fragments.ContactsListFragment
+import io.github.vnicius.picpay.ui.contacts.fragments.NoContactsFragment
 import io.github.vnicius.picpay.utils.NetworkUtils
-import kotlinx.android.synthetic.main.activity_contacts.*
 import kotlinx.android.synthetic.main.search_widget.*
 import java.io.Serializable
 

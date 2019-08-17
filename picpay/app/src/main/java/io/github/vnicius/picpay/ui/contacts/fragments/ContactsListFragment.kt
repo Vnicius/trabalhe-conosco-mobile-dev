@@ -1,4 +1,4 @@
-package io.github.vnicius.picpay.fragments
+package io.github.vnicius.picpay.ui.contacts.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,10 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import io.github.vnicius.picpay.R
-import io.github.vnicius.picpay.adapters.ContactsAdapter
-import io.github.vnicius.picpay.adapters.ItemClick
+import io.github.vnicius.picpay.ui.contacts.adapters.ContactsAdapter
+import io.github.vnicius.picpay.ui.common.adapters.ItemClick
 import io.github.vnicius.picpay.data.model.Contact
-import kotlinx.android.synthetic.main.fragment_contacts_list.*
 
 /**
  * [Fragment] to show a [List] of [Contact]
@@ -29,11 +28,14 @@ class ContactsListFragment : Fragment() {
         val contacts = arguments?.getSerializable(ARG_DATA) as List<Contact>?
 
         rvContacts.layoutManager = LinearLayoutManager(this.context)
-        rvContacts.adapter = contacts?.let { ContactsAdapter(it, object: ItemClick<Contact> {
-            override fun onClick(view: View, item: Contact) {
-                Toast.makeText(view.context, item.name, Toast.LENGTH_SHORT).show()
-            }
-        }) }
+        rvContacts.adapter = contacts?.let {
+            ContactsAdapter(it, object :
+                ItemClick<Contact> {
+                override fun onClick(view: View, item: Contact) {
+                    Toast.makeText(view.context, item.name, Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
 
         return view
     }
