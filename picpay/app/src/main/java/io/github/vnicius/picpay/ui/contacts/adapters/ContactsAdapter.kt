@@ -11,44 +11,27 @@ import io.github.vnicius.picpay.R
 import io.github.vnicius.picpay.data.model.Contact
 import io.github.vnicius.picpay.ui.common.adapters.ItemClick
 
-class ContactsAdapter(val contacts: List<Contact>, val listener: ItemClick<Contact>): RecyclerView.Adapter<ContactsAdapter.VielHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VielHolder {
+class ContactsAdapter(val contacts: List<Contact>, val listener: ItemClick<Contact>): RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.contact_item, parent, false)
 
-        return VielHolder(
-            view,
-            object : OnItemClickListener {
-                override fun onClick(view: View, position: Int) {
-                    listener.onClick(view, contacts[position])
-                }
-            })
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
         return contacts.size
     }
 
-    override fun onBindViewHolder(holder: VielHolder, position: Int) {
-        holder.bindView(contacts[position])
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bindView(contacts[position], listener)
     }
 
-    interface OnItemClickListener {
-        fun onClick(view: View, position: Int)
-    }
-
-    class VielHolder(itemvView: View, private val listener: OnItemClickListener): RecyclerView.ViewHolder(itemvView), View.OnClickListener {
-
-        init {
-            itemvView.setOnClickListener(this)
-        }
-
-        override fun onClick(view: View) {
-
-            listener.onClick(view, adapterPosition)
-        }
-
-
-        fun bindView(contact: Contact) {
+    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+        
+        fun bindView(contact: Contact, listener: ItemClick<Contact>) {
+            itemView.setOnClickListener { 
+                listener.onClick(it, contact)
+            }
             itemView.findViewById<TextView>(R.id.tv_contact_username).text = contact.username
             itemView.findViewById<TextView>(R.id.tv_contact_name).text = contact.name
             Picasso.get()

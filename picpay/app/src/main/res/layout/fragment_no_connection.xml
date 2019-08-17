@@ -27,11 +27,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/try_again"
-                android:textSize="15sp"
                 android:layout_alignTop="@id/tv_no_connection"
-                android:background="@drawable/button_bg"
-                android:textColor="@color/colorPrimaryText"
-                android:layout_marginTop="16dp"
+                style="@style/PrimaryButton"
         />
 
     </LinearLayout>

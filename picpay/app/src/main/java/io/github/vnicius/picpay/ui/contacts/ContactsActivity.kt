@@ -2,6 +2,7 @@ package io.github.vnicius.picpay.ui.contacts
 
 import android.graphics.PorterDuff
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -10,8 +11,10 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import io.github.vnicius.picpay.R
 import io.github.vnicius.picpay.data.model.Contact
+import io.github.vnicius.picpay.ui.common.adapters.ItemClick
 import io.github.vnicius.picpay.ui.common.fragments.NoConnectionFragment
 import io.github.vnicius.picpay.ui.common.fragments.NoResultFragment
 import io.github.vnicius.picpay.ui.common.fragments.SpinnerFragment
@@ -126,5 +129,4 @@ class ContactsActivity : AppCompatActivity(), ContactsContract.View {
             mPresenter.getContacts()
         })
     }
-
 }

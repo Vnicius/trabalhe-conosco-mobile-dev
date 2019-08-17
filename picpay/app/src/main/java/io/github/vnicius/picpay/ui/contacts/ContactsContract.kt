@@ -43,6 +43,7 @@ interface ContactsContract {
          * Show try again screen
          */
         fun showTryAgain()
+
     }
 
     /**
