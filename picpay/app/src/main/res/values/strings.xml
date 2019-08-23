@@ -97,4 +97,14 @@
     <string name="try_again">Tentar novamente</string>
     <string name="no_connection">Sem conexão</string>
     <string name="register_card">Cadastrar cartão</string>
+    <string name="register_a_card">Cadastre um cartão de crédito</string>
+    <string name="make_payment_desc">Para fazer pagamentos para outras pessoas você precisa cadastrar um cartão de
+        crédito pessoal
+    </string>
+    <string name="cadastrar_cart_o">Cadastrar cartão</string>
+    <string name="card_number">Número do cartão</string>
+    <string name="titular_name">Nome do titular</string>
+    <string name="validation">Vencimento</string>
+    <string name="cvv">CVV</string>
+    <string name="save">Salvar</string>
 </resources>

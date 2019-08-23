@@ -28,5 +28,13 @@
         <item name="android:textSize">15sp</item>
         <item name="android:layout_margin">16dp</item>
     </style>
-
+    <style name="TextInputLayout">
+        <item name="android:textColorHint">@color/colorSecondaryText</item>
+    </style>
+    <style name="TextInputEditText">
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:backgroundTint">@color/colorSecondaryText</item>
+        <item name="android:lines">1</item>
+    </style>
 </resources>

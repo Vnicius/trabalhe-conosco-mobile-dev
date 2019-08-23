@@ -69,7 +69,12 @@ class ContactsActivity : AppCompatActivity(), ContactsContract.View {
         })
     }
 
+    override fun onBackPressed() {
+        finish()
+    }
+
     private fun changeFragment(fragment: Fragment){
+        mFragmentManager.popBackStack()
         val transaction = mFragmentManager.beginTransaction().apply {
             replace(R.id.frame_contacts, fragment)
             addToBackStack(null)

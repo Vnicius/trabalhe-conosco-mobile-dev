@@ -1,10 +1,13 @@
 package io.github.vnicius.picpay.ui.cardpriming
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import io.github.vnicius.picpay.R
 import io.github.vnicius.picpay.data.model.Contact
+import io.github.vnicius.picpay.ui.cardregister.CardRegisterActivity
 import kotlinx.android.synthetic.main.activity_card_priming.*
+import java.io.Serializable
 
 class CardPrimingActivity : AppCompatActivity() {
 
@@ -21,9 +24,15 @@ class CardPrimingActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         mContact = intent.extras.getSerializable(ARG_DATA) as Contact
+
+        btn_card_priming_register_card.setOnClickListener {
+            val intent = Intent(it.context, CardRegisterActivity::class.java)
+            intent.putExtra(CardRegisterActivity.ARG_DATA, mContact as Serializable)
+            startActivity(intent)
+        }
     }
 
     companion object {
-        const val ARG_DATA = "contacts"
+        const val ARG_DATA = "contact"
     }
 }
