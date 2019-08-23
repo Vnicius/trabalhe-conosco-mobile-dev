@@ -7,19 +7,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 import io.github.vnicius.picpay.R
+import io.github.vnicius.picpay.data.model.Card
 import io.github.vnicius.picpay.ui.contacts.adapters.ContactsAdapter
 import io.github.vnicius.picpay.ui.common.adapters.ItemClick
 import io.github.vnicius.picpay.data.model.Contact
 import io.github.vnicius.picpay.data.repository.cards.CardsRepository
 import io.github.vnicius.picpay.data.repository.cards.CardsRepositoryLocal
 import io.github.vnicius.picpay.ui.cardpriming.CardPrimingActivity
+import io.github.vnicius.picpay.ui.cardregister.CardRegisterActivity
 import io.github.vnicius.picpay.ui.contacts.ContactsContract
+import io.github.vnicius.picpay.ui.contacts.adapters.CardsAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -70,14 +75,31 @@ class ContactsListFragment : Fragment() {
             if(cards.isEmpty()) {
                 showCardPriming(contact)
             } else {
-                showCards(contact)
+                showCards(cards, contact)
             }
         }
     }
 
-    private fun showCards(contact: Contact) {
+    private fun showCards(cards: List<Card>, contact: Contact) {
         val bottomSheet = BottomSheetDialog(context!!)
         val sheetView = layoutInflater.inflate(R.layout.cards_sheet, null)
+        val rvCards = sheetView.findViewById<RecyclerView>(R.id.rv_cards)
+        val btnRegister = sheetView.findViewById<Button>(R.id.btn_register_card)
+
+        rvCards.layoutManager = LinearLayoutManager(context)
+        rvCards.adapter = CardsAdapter(cards,
+            object : ItemClick<Card>{
+                override fun onClick(view: View, item: Card) {
+                    Toast.makeText(view.context, item.number, Toast.LENGTH_SHORT).show()
+                }
+            })
+
+        btnRegister.setOnClickListener {
+            val intent = Intent(it.context, CardRegisterActivity::class.java)
+            intent.putExtra(CardRegisterActivity.ARG_DATA, contact as Serializable)
+
+            startActivity(intent)
+        }
 
         bottomSheet.setContentView(sheetView)
         bottomSheet.show()

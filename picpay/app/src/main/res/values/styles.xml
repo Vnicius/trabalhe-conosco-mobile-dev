@@ -12,6 +12,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_keyboard_arrow_left</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
     <style name="ToolbarColors" parent="AppTheme.NoActionBar">
         <item name="android:textColorSecondary">@color/colorAccent</item>
@@ -36,5 +37,12 @@
         <item name="android:textSize">20sp</item>
         <item name="android:backgroundTint">@color/colorSecondaryText</item>
         <item name="android:lines">1</item>
+    </style>
+    <style name="AppBottomSheetDialogTheme"
+           parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/sheet_background</item>
     </style>
 </resources>
