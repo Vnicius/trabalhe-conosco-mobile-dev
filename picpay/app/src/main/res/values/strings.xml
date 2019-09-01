@@ -112,4 +112,5 @@
     <string name="recibo">Recibo</string>
     <string name="card">Cartão</string>
     <string name="total_pago">Total pago</string>
+    <string name="contacts">Contatos</string>
 </resources>
