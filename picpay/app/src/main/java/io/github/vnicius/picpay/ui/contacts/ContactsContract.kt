@@ -1,6 +1,6 @@
 package io.github.vnicius.picpay.ui.contacts
 
-import io.github.vnicius.picpay.data.model.Contact
+import io.github.vnicius.picpay.data.model.User
 
 /**
  * Contacts UI contract
@@ -13,9 +13,9 @@ interface ContactsContract {
     interface View {
         /**
          * Show the contacts
-         * @param contacts a [List] of [Contact]
+         * @param contacts a [List] of [User]
          */
-        fun showContacts(contacts: List<Contact>)
+        fun showContacts(contacts: List<User>)
 
         /**
          * Show "no result" message to a query
@@ -61,6 +61,6 @@ interface ContactsContract {
          * @param contacts
          * @param query
          */
-        fun searchContact(contacts: List<Contact>, query: String)
+        fun searchContact(contacts: List<User>, query: String)
     }
 }

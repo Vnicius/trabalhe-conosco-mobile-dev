@@ -29,7 +29,7 @@ class CardsAdapter(val cards: List<Card>, val listener: ItemClick<Card>): Recycl
             itemView.setOnClickListener {
                 listener.onClick(itemView, card)
             }
-            itemView.findViewById<TextView>(R.id.tv_card_number).text = "**** ${card.number.subSequence(12, 16)}"
+            itemView.findViewById<TextView>(R.id.tv_card_number).text = "Card ${card.number.subSequence(12, 16)}"
         }
     }
 }

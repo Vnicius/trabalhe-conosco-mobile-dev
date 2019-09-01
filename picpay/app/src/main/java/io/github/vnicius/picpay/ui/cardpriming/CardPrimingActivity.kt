@@ -4,14 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import io.github.vnicius.picpay.R
-import io.github.vnicius.picpay.data.model.Contact
+import io.github.vnicius.picpay.data.model.User
 import io.github.vnicius.picpay.ui.cardregister.CardRegisterActivity
 import kotlinx.android.synthetic.main.activity_card_priming.*
 import java.io.Serializable
 
 class CardPrimingActivity : AppCompatActivity() {
 
-    private lateinit var mContact: Contact
+    private lateinit var mContact: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +23,7 @@ class CardPrimingActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        mContact = intent.extras.getSerializable(ARG_DATA) as Contact
+        mContact = intent.extras.getSerializable(ARG_DATA) as User
 
         btn_card_priming_register_card.setOnClickListener {
             val intent = Intent(it.context, CardRegisterActivity::class.java)

@@ -1,6 +1,6 @@
 package io.github.vnicius.picpay.ui.contacts
 
-import io.github.vnicius.picpay.data.model.Contact
+import io.github.vnicius.picpay.data.model.User
 import io.github.vnicius.picpay.data.repository.contacts.ContactsRepository
 import io.github.vnicius.picpay.data.repository.contacts.ContactsRepositoryRemote
 import kotlinx.coroutines.CoroutineScope
@@ -19,7 +19,7 @@ class ContactsPresenter(val view: ContactsContract.View): ContactsContract.Prese
         view.showLoad()
 
         scope.launch {
-            var contacts: List<Contact>?
+            var contacts: List<User>?
 
             try {
                 coroutineScope {
@@ -39,7 +39,7 @@ class ContactsPresenter(val view: ContactsContract.View): ContactsContract.Prese
         }
     }
 
-    override fun searchContact(contacts: List<Contact>, query: String) {
+    override fun searchContact(contacts: List<User>, query: String) {
         val filteredContacts = contacts.filter {
             query.toLowerCase() in it.name.toLowerCase() || query.toLowerCase() in it.username.toLowerCase()
         }

@@ -5,5 +5,6 @@ import kotlinx.coroutines.Deferred
 
 interface CardsRepository {
     fun saveCard(card: Card): Deferred<Long>
+    fun uploadCard(card: Card): Deferred<Boolean>
     fun getAllCards(): Deferred<List<Card>>
 }

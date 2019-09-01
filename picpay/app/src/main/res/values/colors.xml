@@ -3,9 +3,13 @@
     <color name="colorPrimary">#1D1E20</color>
     <color name="colorPrimaryDark">#2B2C2F</color>
     <color name="colorBG">#1D1E20</color>
+    <color name="colorBGSecondary">#1D1E20</color>
+    <color name="colorCardBG">#151516</color>
     <color name="colorAccent">#11C76F</color>
     <color name="colorPrimaryText">#FFF</color>
     <color name="colorSecondaryText">#80FFFFFF</color>
+    <color name="colorThirdText">#66FFFFFF</color>
     <color name="colorSecondaryIcon">#959697</color>
     <color name="white">#FFF</color>
+    <color name="colorLine">#3D4451</color>
 </resources>

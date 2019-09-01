@@ -52,6 +52,23 @@ class CardsRepositoryLocal(context: Context): CardsRepository{
         cards.toList()
     }
 
+    override fun uploadCard(card: Card) = GlobalScope.async{
+        val db = dbHelper.writableDatabase
+
+        val values = ContentValues().apply {
+            put(CardEntry.COLUMN_NAME_NUMBER, card.number)
+            put(CardEntry.COLUMN_NAME_TITULAR, card.titular)
+            put(CardEntry.COLUMN_NAME_VALID_DATE, card.validDate)
+            put(CardEntry.COLUMN_NAME_CVV, card.cvv)
+        }
+
+        val selection = "${BaseEntry.COLUMN_NAME_ID} LIKE ?"
+        val selectionArgs = arrayOf(card.id.toString())
+        val count = db.update(CardEntry.TABLE_NAME, values, selection, selectionArgs)
+
+        count != 0
+    }
+
     fun finish() {
         dbHelper.close()
     }

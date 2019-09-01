@@ -1,6 +1,6 @@
 package io.github.vnicius.picpay.data.repository.contacts
 
-import io.github.vnicius.picpay.data.model.Contact
+import io.github.vnicius.picpay.data.model.User
 import kotlinx.coroutines.Deferred
 
 /**
@@ -10,5 +10,5 @@ interface ContactsRepository {
     /**
      * Get the contacts in async way
      */
-    fun getContacts(): Deferred<List<Contact>?>
+    fun getContacts(): Deferred<List<User>?>
 }
